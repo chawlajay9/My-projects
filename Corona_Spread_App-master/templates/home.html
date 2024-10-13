@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+    <h1>COVID-19 Spread Analysis</h1>
+  <div class="row">
+    
+        <div class="col-4">
+            <h5><font color="red">Top 15 Country</font></h5>
+            <p>This is data is collected from different source.</p>
+            <table class="table-responsive-sm table-dark">
+                <thead>
+                    <tr>
+                    <th scope="col">Province State</th>
+                    <th scope="col">Confirmed</tr>
+                        </tr>
+                </thead>
+                <tbody>
+                {% for pair in pairs[0] %}
+                <tr>
+                <td>{{ pair[0]}}</td>
+                <td>{{ pair[1]}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <h5><font color="firebrick">world map of corona cases. The bigger the circle, bigger is the impace of corona virus in that province state.</font></h5>
+            <p>using the same data we provided an updated map that contains</p>
+            {{cmap[0]|safe}}
+        </div>
+        
+     </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    
+        <div class="col-4">
+            <h5><font color="red">Top 15 States</font></h5>
+            <p>This is the province state wise covid-19 data upto 20 july 2020.</p>
+            <table class="table-responsive-sm table-dark">
+                <thead>
+                    <tr>
+                    <th scope="col">Province State</th>
+                    <th scope="col">Confirmed</tr>
+                        </tr>
+                </thead>
+                <tbody>
+                {% for pair in pairs[1] %}
+                <tr>
+                <td>{{ pair[0]}}</td>
+                <td>{{ pair[1]}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <h5><font color="firebrick">world map of corona cases. The bigger the circle, bigger is the impace of corona virus in that province state.</font></h5>
+            <p>using the same data we provided an updated map that contains</p>
+            {{cmap[1]|safe}}
+        </div>
+        
+     </div>
+</div>
+
+
+
+{% endblock %}
